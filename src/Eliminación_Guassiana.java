@@ -21,7 +21,7 @@ public class Eliminación_Guassiana {
         }
 
             for (int j=0; j<columnas+1; j++) {
-                matriz[0][j]*=-3+matriz[1][j];
+                matriz[1][j]+=-3*matriz[0][j];
             }
 
         System.out.println("-----------------");
