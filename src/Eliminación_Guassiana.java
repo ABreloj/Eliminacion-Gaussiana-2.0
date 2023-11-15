@@ -6,7 +6,7 @@ public class Eliminación_Guassiana {
             for (int j = 0; j < (numValores + 1); j++) {
                 System.out.print(" " + matriz[i][j] + " |");
             }
-            System.out.println("");
+            System.out.println(" ");
         }
     }
 
@@ -68,10 +68,11 @@ public class Eliminación_Guassiana {
                 piv++;
             }
 
-            // Resultado final de la eliminación gaussiana
+
             System.out.println("Resultados Finales:");
+
             for (int i = 0; i < nFilas; i++) {
-                System.out.println("El resultado de la matriz " + (i + 1) + " es: " + matriz[i][nColumnas]);
+                System.out.println("El resultado de las variable es: " + matriz[i][nColumnas]);
             }
         }
     }
