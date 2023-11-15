@@ -12,8 +12,13 @@ public class Eliminación_Guassiana {
 
     public static void pivote(int matriz[][], int piv, int numValores) {
         int valorPiv = matriz[piv][piv];
-        for (int i = 0; i < (numValores + 1); i++) {
-            matriz[piv][i] = matriz[piv][i] / valorPiv;
+        if (valorPiv != 0) {
+            for (int i = 0; i < (numValores + 1); i++) {
+                matriz[piv][i] = matriz[piv][i] / valorPiv;
+            }
+        } else {
+            System.out.println("No se puede realizar la eliminación gaussiana.");
+            System.exit(0);
         }
     }
 
@@ -32,6 +37,7 @@ public class Eliminación_Guassiana {
         try (Scanner leer = new Scanner(System.in)) {
             int piv = 0, nColumnas, nFilas;
             int matriz[][];
+            // Entrada de filas y columnas de la matriz
             System.out.println("*ELIMINACIÓN GAUSSIANA*");
             System.out.println("Escribe el total de filas: ");
             nFilas = leer.nextInt();
@@ -39,6 +45,7 @@ public class Eliminación_Guassiana {
             nColumnas = leer.nextInt();
             matriz = new int[nFilas][nColumnas + 1];
 
+            // Entrada de datos de la matriz
             for (int i = 0; i < nFilas; i++) {
                 for (int j = 0; j < (nColumnas + 1); j++) {
                     System.out.printf("Ingresa el coeficiente de la posición: A[%d][%d]: ", (i + 1), (j + 1));
@@ -46,6 +53,7 @@ public class Eliminación_Guassiana {
                 }
             }
 
+            // Eliminación Gaussiana convirtiendolo en ceros y unos
             for (int i = 0; i < nFilas; i++) {
                 pivote(matriz, piv, nFilas);
 
@@ -60,9 +68,10 @@ public class Eliminación_Guassiana {
                 piv++;
             }
 
+            // Resultado final de la eliminación gaussiana
             System.out.println("Resultados Finales:");
             for (int i = 0; i < nFilas; i++) {
-                System.out.println("El resultado de la matriz " + (i + 1) + " es: " + matriz[i][nFilas]);
+                System.out.println("El resultado de la matriz " + (i + 1) + " es: " + matriz[i][nColumnas]);
             }
         }
     }
